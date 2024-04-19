@@ -1,0 +1,50 @@
+$blue: #4e78cc !default;
+$danger: #ffffff !default;
+
+body {
+	background-color: #ececec;
+}
+.form-container {
+	padding: 15px;
+	border-radius: 19px;
+	background-color: white;
+}
+
+.form-select {
+	border-radius: 12px !important;
+	border: 1px solid rgb(128, 128, 128) !important;
+	&::placeholder {
+		font-size: 0.8rem;
+	}
+	&:focus {
+		box-shadow: none;
+		border: 1px solid #4e78cc;
+	}
+}
+
+.form-control {
+	border-radius: 12px !important;
+	width: 70%;
+	border: 1px solid rgb(128, 128, 128);
+	&::placeholder {
+		font-size: 0.8rem;
+	}
+	&:focus {
+		box-shadow: none;
+		border: 1px solid #4e78cc;
+	}
+}
+
+th:first-child {
+	text-align: center;
+}
+
+td {
+	vertical-align: middle;
+	text-align: center;
+}
+
+// background-color: #191919 !important;
+.winWin {
+	color: blue;
+}
