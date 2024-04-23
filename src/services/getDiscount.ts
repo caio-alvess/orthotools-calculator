@@ -1,7 +1,6 @@
 import * as cobs from "./discounts";
 import {Pacient} from "../model";
-
-import {PacientCobType} from "../model";
+import hasPromo from "../utils/hasPromo";
 
 const pacientPropsToNumber = (rawPacient: Pacient) => ({
 	...rawPacient,
@@ -9,13 +8,6 @@ const pacientPropsToNumber = (rawPacient: Pacient) => ({
 	promo: Number(rawPacient.promo),
 	regular: Number(rawPacient.regular),
 });
-
-const hasPromo = (pacientType: PacientCobType, pacientDate: number) => {
-	const todayTimestamp = new Date().getDate();
-	return pacientType in ["cob0", "blacklist"] || pacientDate <= todayTimestamp
-		? false
-		: true;
-};
 
 const getDiscount = (rawPacient: Pacient) => {
 	const {date, promo, regular, type} = pacientPropsToNumber(rawPacient);

@@ -1,5 +1,6 @@
 import {useState} from "react";
 import {InputFn} from "../model";
+import DateInput from "./DateInput";
 
 const inputText = {
 	promo: {
@@ -36,14 +37,25 @@ const Input: React.FC<InputFn> = ({type, pacientInfo}) => {
 			>
 				{inputText[type].label}
 			</label>
-			<input
-				className="form-control d-block mx-auto"
-				id={type}
-				type="number"
-				placeholder={inputText[type].placeholder}
-				onChange={handleChange}
-				value={inputValue}
-			/>
+
+			{type === "date" ? (
+				<DateInput key={"di2"} pacientInfo={pacientInfo} />
+			) : (
+				<div className="input-group mb-3">
+					<div className="input-group-prepend">
+						<span className="input-group-text">R$</span>
+					</div>
+
+					<input
+						className="form-control"
+						id={type}
+						type="number"
+						placeholder={inputText[type].placeholder}
+						onChange={handleChange}
+						value={inputValue}
+					/>
+				</div>
+			)}
 		</>
 	);
 };

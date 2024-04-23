@@ -42,7 +42,7 @@ function DiscountTable({
 	looseWinMsg,
 }: DiscountTableUnraveled) {
 	return (
-		<div className="row mt-5">
+		<div className="row mt-4 w-75 mx-auto px-3">
 			<div className="col-md-12">
 				<div className="table-wrapper">
 					<table className="table table-bordered">

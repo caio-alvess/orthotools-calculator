@@ -1,0 +1,45 @@
+th:first-child {
+	text-align: center;
+}
+
+td {
+	vertical-align: middle;
+	text-align: center;
+}
+
+th {
+	padding: 15px 0 0 0;
+}
+
+.amount {
+	border: 1px solid #ccc;
+	border-collapse: separate;
+	border: solid #ccc 1px;
+	border-radius: 19px;
+	width: calc(100% - 24rem);
+
+	&__td {
+		min-width: 170px;
+		border-bottom: 1px solid #ccc;
+		font-size: 0.9rem;
+		height: 35px;
+	}
+
+	&__status {
+		width: calc(100% - 15px);
+		padding: 0.15rem 1.5rem;
+		border-radius: 19px;
+		color: white;
+		&-expired {
+			background-color: #dc3545;
+		}
+		&-open {
+			background-color: #17a2b8;
+		}
+	}
+	&__total {
+		text-align: center;
+		font-size: 1rem;
+		font-weight: bold;
+	}
+}

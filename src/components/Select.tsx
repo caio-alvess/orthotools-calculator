@@ -2,12 +2,12 @@ import {InputFn, PacientCobType} from "../model";
 
 const Select = ({pacientInfo}: Pick<InputFn, "pacientInfo">) => {
 	return (
-		<div className="form mx-auto w-75">
+		<div className="form mx-auto w-75 text-center">
 			<label htmlFor="tipo" className="form-label">
 				Tipo
 			</label>
 			<select
-				className="form-select mb-3"
+				className="form-select mb-3 ms-3 text-center"
 				id="tipo"
 				aria-label="Tipo"
 				onChange={(e) => {
