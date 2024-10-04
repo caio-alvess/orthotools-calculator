@@ -1,6 +1,7 @@
 import {useState} from "react";
 import {InputFn} from "../model";
 import DateInput from "./DateInput";
+import numberFormmater from "../utils/numberFormatter";
 
 const inputText = {
 	promo: {
@@ -17,16 +18,23 @@ const inputText = {
 	},
 };
 
-const Input: React.FC<InputFn> = ({type, pacientInfo}) => {
-	const [inputValue, setInput] = useState("");
-
+const Input: React.FC<InputFn> = ({type, pacientInfo, isWarning, inputRef}) => {
 	if (!type) {
 		return false;
 	}
+
+	const [inputValue, setInput] = useState("");
+
 	const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
-		const value = e.target.value;
+		const value = numberFormmater(e.target.value);
+		const valueWithDot = value.replace(",", ".");
 		setInput(value);
-		pacientInfo((prev) => ({...prev, [type]: value}));
+
+		if (type === "regular" && value.length >= 6) {
+			inputRef?.current.focus();
+			inputRef?.current.select();
+		}
+		pacientInfo((prev) => ({...prev, [type]: valueWithDot}));
 	};
 
 	return (
@@ -49,12 +57,18 @@ const Input: React.FC<InputFn> = ({type, pacientInfo}) => {
 					<input
 						className="form-control"
 						id={type}
-						type="number"
+						type="text"
 						placeholder={inputText[type].placeholder}
 						onChange={handleChange}
+						ref={type === "promo" ? inputRef : null}
 						value={inputValue}
 					/>
 				</div>
+			)}
+			{isWarning ? (
+				<p className="discount-warning">Valor maior que o integral</p>
+			) : (
+				""
 			)}
 		</>
 	);

@@ -14,6 +14,7 @@ const getDateOptions = () => {
 const DateInput = ({pacientInfo}: Pick<InputFn, "pacientInfo">) => {
 	return (
 		<select
+			name="date"
 			className="form-select mb-3 text-center w-50 mx-auto"
 			style={{maxHeight: "50px"}}
 			onChange={(e) => {
@@ -23,7 +24,6 @@ const DateInput = ({pacientInfo}: Pick<InputFn, "pacientInfo">) => {
 					date: value as PacientCobType,
 				}));
 			}}
-			name="date"
 		>
 			{getDateOptions()}
 		</select>

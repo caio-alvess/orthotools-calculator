@@ -1,6 +1,12 @@
 body {
 	background-color: #ececec;
 }
+
+a {
+	color: inherit;
+	opacity: inherit;
+}
+
 @import "_form";
 @import "_table";
 @import "_mediaqueries";

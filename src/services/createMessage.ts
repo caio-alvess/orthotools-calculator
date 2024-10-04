@@ -1,18 +1,15 @@
-// import { Pacient } from "../model";
 import {DiscountReturn, DiscountsOptions, DiscountUnraveled} from "../model";
+import numberToCurrency from "../utils/numToCurrency";
 
 const unravelDiscount = (discount: DiscountReturn<number>) => {
 	const {text, value, secundaryValue} = discount;
 	const unraveledDiscount: DiscountUnraveled = {
 		title: text,
-		description: `${value.toLocaleString("pt-br", {
-			style: "currency",
-			currency: "BRL",
-		})}`,
-		secundaryDescription: `${secundaryValue?.toLocaleString("pt-br", {
-			style: "currency",
-			currency: "BRL",
-		})}`,
+		description: `${numberToCurrency(value)}`,
+		secundaryDescription: `${
+			secundaryValue && numberToCurrency(secundaryValue)
+		}`,
+		rawValue: {value: value, secundaryValue: secundaryValue || null},
 	};
 	return unraveledDiscount;
 };

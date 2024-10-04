@@ -1,0 +1,21 @@
+.danger-card {
+	color: #ffffff;
+	padding: 2px 5px;
+	font-size: 0.75rem;
+	background-color: rgb(189, 0, 0);
+}
+
+.wrong-discount {
+	font-size: 0.6em;
+	font-weight: 500;
+	margin-left: 4px;
+	color: #000;
+	opacity: 0.5;
+}
+
+.discount-warning {
+	color: red;
+	margin-top: -10px;
+	text-align: center;
+	font-size: 0.75em;
+}

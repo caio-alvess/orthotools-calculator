@@ -1,3 +1,5 @@
+import React from "react";
+
 type PacientCobType = "cob0" | "cob30" | "cob60" | "cob90" | "blacklist";
 
 interface DiscountReturn<T> {
@@ -30,6 +32,8 @@ interface Pacient {
 type InputFn = {
 	type?: "promo" | "regular" | "date";
 	pacientInfo: React.Dispatch<React.SetStateAction<Pacient>>;
+	isWarning?: boolean;
+	inputRef?: React.MutableRefObject<HTMLInputElement>;
 };
 
 interface DiscountsOptions {
@@ -42,6 +46,7 @@ interface DiscountUnraveled {
 	title: string;
 	description: string;
 	secundaryDescription: string;
+	rawValue: {value: number; secundaryValue: number | null};
 }
 
 interface DiscountTableUnraveled {

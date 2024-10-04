@@ -7,7 +7,7 @@ const hasPromo = (
 	const pacientDateNumber =
 		typeof pacientDate == "number" ? pacientDate : Number(pacientDate);
 	return pacientType in ["cob0", "blacklist"] ||
-		pacientDateNumber <= todayTimestamp
+		pacientDateNumber < todayTimestamp
 		? false
 		: true;
 };
